@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: tela-meio
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./out
+    headers:
+      # modelos/vídeos são imutáveis e pesados (~190MB) — cache agressivo no totem
+      - path: /models/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /videos/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
