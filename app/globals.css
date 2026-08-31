@@ -138,6 +138,12 @@ a {
   }
 }
 
+@media (min-width: 2200px) {
+  .stage-view {
+    max-width: 1400px;
+  }
+}
+
 .plant-map-wrapper {
   position: relative;
   width: 100%;
@@ -817,12 +823,14 @@ a {
   .ai-fab { width: 72px; height: 72px; right: 28px; bottom: 28px; }
 }
 
-/* Large portrait totem (1080x1920 and up). The generic totem tier above is
+/* Large portrait totem (1080x1920 and similar). The generic totem tier above is
    tuned for tablet-sized portrait screens; at a metre tall and viewed from
    standing distance its caps read as a phone UI stretched across a wall, so
    this tier resets the scale against the real viewing distance and lets the
-   layout use the full 1080 instead of the 900px reading-width cap. */
-@media (orientation: portrait) and (min-width: 900px) and (min-height: 1600px) {
+   layout use the full 1080 instead of the 900px reading-width cap. Height floor
+   is 1400 (not 1600) so near-totem panel sizes get the same treatment instead
+   of a jarring cliff back to the tablet tier. */
+@media (orientation: portrait) and (min-width: 900px) and (min-height: 1400px) {
   .topbar { min-height: 112px; padding: 26px 44px; }
   .topbar-wordmark { font-size: 2.1rem; }
   .brand-rule { height: 5px; }
